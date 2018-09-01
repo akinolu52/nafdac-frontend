@@ -17,11 +17,8 @@ export default class Products extends Component {
     }
     getProducts() {
         const self = this;
-        API.get('/products/mine', {
-            headers: {
-                X_TOKEN: this.state.userData.token
-            }
-        }).then(response => {
+        API.get('/products/mine', { headers: { X_TOKEN: this.state.userData.token } })
+        .then(response => {
             if (response !== false) {
                 self.setState({ products: response })
             }

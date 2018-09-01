@@ -15,6 +15,7 @@ export default class ProductCreate extends Component {
             name: null,
             description: null,
             image: null,
+            error: null,
         }
         this.createProduct = this.createProduct.bind(this)
         this.onChange = this.onChange.bind(this);
@@ -26,16 +27,33 @@ export default class ProductCreate extends Component {
         });
     }
 
+
+    fileChangedHandler = (event) => {
+        const file = event.target.files[0]
+        this.setState({image: file})
+    }
+
     createProduct(e) {
         e.preventDefault();
-        // console.log('ll', this.state)
+
+        const formData = new FormData()
+        formData.append('image', this.state.image)
+        formData.append('name', this.state.name)
+        formData.append('description', this.state.description)
+        console.log(this.state)
         if (this.state.name && this.state.description) {
-            API.post('products/create', { headers: { X_TOKEN: this.state.userData.token } }, this.state).then(res => {
-                if (res.data.error) {
-                    this.setState({ 'error': res.data.error.text })
+            let req = {
+                url: '/products/create',
+                method: 'POST',
+                headers: { X_TOKEN: this.state.userData.token },
+                data: formData
+            }
+            API(req).then(res => {
+                if (res.data == false) {
+                    this.setState({ 'error': 'error in submission' })
                 } else {
-                    let response = res.data
-                    console.log(response)
+                    alert('Product Created')
+                    window.location.href = "/products"
                 }
                 
             })
@@ -72,7 +90,7 @@ export default class ProductCreate extends Component {
                                             </div>
                                             <div className="form-group">
                                                 <label>Product image </label>
-                                                <input type="file" name="img" className="file-upload-default" onChange={this.onChange}/>
+                                                <input type="file" name="image" className="file-upload-default" onChange={this.fileChangedHandler}/>
                                                 <div className="input-group col-xs-12">
                                                     <input type="text" className="form-control file-upload-info" disabled placeholder="Upload Image"/>
                                                     <span className="input-group-append">
