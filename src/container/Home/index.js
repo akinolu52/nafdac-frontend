@@ -101,7 +101,7 @@ export default class Home extends Component {
                     </form>
                     <div id="madeby">
                         <span>
-                            Photo by <a href="https://unsplash.com/@benblenner" target="_blank">Ben Blennerhassett</a>
+                            Photo by <span>Ben Blennerhassett</span>
                         </span>
                     </div>
                 </div>

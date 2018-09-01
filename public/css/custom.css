@@ -244,3 +244,4 @@ input[type="search"] {
 .f-13 {
   font-size: 13px }
 .green-border { border: green 1px solid !important; }
+.pointer {cursor: pointer;}

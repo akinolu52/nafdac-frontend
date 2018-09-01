@@ -48,7 +48,7 @@ export default class ProductCreate extends Component {
                 data: formData
             }
             API(req).then(res => {
-                if (res.data == false) {
+                if (res.data === false) {
                     this.setState({ 'error': 'error in submission' })
                 } else {
                     alert('Product Created')
