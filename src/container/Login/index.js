@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import {Link, Redirect} from 'react-router-dom'
 import API from '../../api';
 import classNames from 'classnames'
-import userAuth from '../App'
 
 export default class Login extends Component {
     constructor() {
@@ -36,7 +35,6 @@ export default class Login extends Component {
                         // userAuth.authenticated(() => {
                             this.setState({redirectToReferrer: true})
                         // })
-                        
                     }
                 }
                 
@@ -98,11 +96,6 @@ export default class Login extends Component {
                             <div className="form-group">
                             <button className="btn btn-primary submit-btn btn-block" onClick={this.login} >Login</button>
                             </div>
-                            {/* <div className="form-group">
-                                <button className="btn btn-block g-login">
-                                    Log in with Google
-                                </button>
-                            </div> */}
                             <div className="text-block text-center my-3">
                             <span className="text-small font-weight-semibold">Not a member?</span> 
                             <Link to="register" className="text-black text-small ml-2">Create new account</Link>
@@ -110,17 +103,8 @@ export default class Login extends Component {
                         </form>
                         </div>
                         <ul className="auth-footer">
-                        <li>
-                            <a href="#">Conditions</a>
-                        </li>
-                        <li>
-                            <a href="#">Help</a>
-                        </li>
-                        <li>
-                            <a href="#">Terms</a>
-                        </li>
                         </ul>
-                        <p className="footer-text text-center">copyright © 2018 Bootstrapdash. All rights reserved.</p>
+                        <p className="footer-text text-center">copyright &copy; {new Date().getFullYear()} Nafdac. All rights reserved.</p>
                     </div>
                     </div>
                 </div>

@@ -1,12 +1,12 @@
 import React from 'react';
-import { Route, Redirect, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Home from '../Home';
 import Login from '../Login';
 import Register from '../Register';
 import Dashboard from '../Dashboard'
 
-// import SignUp from '../sign-up';
-// import Pricing from '../pricing';
+import ProductCreate from '../product/create';
+import Products from '../product';
 // import Header from '../../partials/header'
 // import Footer from '../../partials/footer'
 
@@ -30,7 +30,9 @@ const App = () => (
       {/* <Route exact path="/about-us" component={About} /> */}
       <Route exact path="/login" component={Login} />
       <Route exact path="/register" component={Register} />
-      <Route path="/dashboard" component={Dashboard} />
+      <Route exact path="/dashboard" component={Dashboard} />
+      <Route exact path="/products/create" component={ProductCreate} />
+      <Route exact path="/products" component={Products} />
       {/* <Route exact path="/pricing" component={Pricing} /> */}
     </Switch>
 

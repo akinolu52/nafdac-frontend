@@ -63,7 +63,7 @@ export default class Register extends Component {
                     <div className="col-lg-4 mx-auto">
                         <h2 className="text-center mb-4">Register</h2>
                         <div className="auto-form-wrapper">
-                        <form action="#">
+                            <form action="#">
                             {
                                 this.state.error &&
                                 <div className="alert alert-danger f-13 alert-dismissible fade show" role="alert">
@@ -109,17 +109,15 @@ export default class Register extends Component {
                             <div className="form-group">
                             <button type="submit" onClick={this.register} className="btn btn-primary submit-btn btn-block">Register</button>
                             </div>
-                                {/* <div className="form-group">
-                                    <button className="btn btn-block g-login">
-                                        Regiser with Google
-                                    </button>
-                                </div> */}
                             <div className="text-block text-center my-3">
                             <span className="text-small font-weight-semibold">Already have and account?</span>
                             <Link to="login" className="text-black text-small ml-2">Login</Link>
                             </div>
                         </form>
                         </div>
+                        <ul className="auth-footer">
+                        </ul>
+                        <p className=" text-center">copyright &copy; {new Date().getFullYear()} Nafdac. All rights reserved.</p>
                     </div>
                     </div>
                 </div>
