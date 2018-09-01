@@ -67,22 +67,22 @@ export default class ProductCreate extends Component {
                                         <h4 className="card-title text-center">Product creation form</h4>
                                         <form className="forms-sample">
                                             <div className="form-group">
-                                            <label htmlFor="exampleInputName1">Product name</label>
-                                            <input type="text" name="name" className={nameInputClass} onChange={this.onChange} placeholder="Name"/>
+                                                <label htmlFor="exampleInputName1">Product name</label>
+                                                <input type="text" name="name" className={nameInputClass} onChange={this.onChange} placeholder="Name"/>
                                             </div>
                                             <div className="form-group">
-                                            <label>Product image </label>
-                                            <input type="file" name="img" className="file-upload-default" onChange={this.onChange}/>
-                                            <div className="input-group col-xs-12">
-                                                <input type="text" className="form-control file-upload-info" disabled placeholder="Upload Image"/>
-                                                <span className="input-group-append">
-                                                <button className="file-upload-browse btn btn-info" type="button">Upload</button>
-                                                </span>
-                                            </div>
+                                                <label>Product image </label>
+                                                <input type="file" name="img" className="file-upload-default" onChange={this.onChange}/>
+                                                <div className="input-group col-xs-12">
+                                                    <input type="text" className="form-control file-upload-info" disabled placeholder="Upload Image"/>
+                                                    <span className="input-group-append">
+                                                    <button className="file-upload-browse btn btn-info" type="button">Upload</button>
+                                                    </span>
+                                                </div>
                                             </div>
                                             <div className="form-group">
-                                            <label htmlFor="exampleTextarea1">Description</label>
-                                            <textarea name="description" className={descriptionInputClass} onChange={this.onChange} rows="10"></textarea>
+                                                <label htmlFor="exampleTextarea1">Description</label>
+                                                <textarea name="description" className={descriptionInputClass} onChange={this.onChange} rows="10"></textarea>
                                             </div>
                                             <button type="submit" onClick={this.createProduct} className="btn btn-success mr-2">Create Product</button>
                                         </form>
