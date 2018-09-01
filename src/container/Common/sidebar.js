@@ -22,7 +22,7 @@ export default class Sidebar extends Component {
                         <div className="nav-link">
                         <div className="user-wrapper">
                             <div className="profile-image">
-                            <img src="./../images/faces-clipart/pic-1.png" alt="profile image" />
+                            <img src="./../images/faces-clipart/pic-1.png" alt="profile image"  style={{ width: '100%' }}/>
                             </div>
                             <div className="text-wrapper">
                             <p className="profile-name">{ this.state.userData.name.substr(0, 12) }...</p>
