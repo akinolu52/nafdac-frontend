@@ -11,7 +11,7 @@ export default class Products extends Component {
         super(props);
         this.state = {
             userData: userData(),
-            products: null,
+            products: [],
         }
         this.getProducts();
     }
@@ -20,7 +20,7 @@ export default class Products extends Component {
         API.get('/products/mine', { headers: { X_TOKEN: this.state.userData.token } })
         .then(response => {
             if (response !== false) {
-                self.setState({ products: response })
+                self.setState({ products: response.data })
             }
         }).catch(e =>{
             console.log(e);
@@ -46,42 +46,46 @@ export default class Products extends Component {
                                                 <thead>
                                                     <tr>
                                                         <th>
-                                                            User
+                                                            Image
                                                         </th>
                                                         <th>
-                                                            First name
+                                                            Name
                                                         </th>
                                                         <th>
-                                                            Progress
+                                                            Description
                                                         </th>
                                                         <th>
-                                                            Amount
+                                                            Status
                                                         </th>
-                                                        <th>
+                                                        {/* <th>
                                                             Deadline
-                                                        </th>
+                                                        </th> */}
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td className="py-1">
-                                                            <img src="../../images/faces-clipart/pic-1.png" alt="image" />
-                                                        </td>
-                                                        <td>
-                                                            Herman Beck
-                                                        </td>
-                                                        <td>
-                                                            <div className="progress">
-                                                            <div className="progress-bar bg-success" role="progressbar" style={{width: "25%"}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            $ 77.99
-                                                        </td>
-                                                        <td>
-                                                            May 15, 2015
-                                                        </td>
-                                                    </tr>
+                                                    { this.state.products && 
+                                                        this.state.products.map(product => (
+                                                            <tr key={product.id}>
+                                                                <td className="py-1">
+                                                                    <img src="../../images/faces-clipart/pic-1.png" alt="image" />
+                                                                </td>
+                                                                <td>
+                                                                    {product.name}
+                                                                </td>
+                                                                <td>
+                                                                    {product.description}
+                                                                </td>
+                                                                <td>
+                                                                    <div className="progress">
+                                                                    <div className="progress-bar bg-success" role="progressbar" style={{width: "25%"}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                    </div>
+                                                                </td>
+                                                                {/* <td>
+                                                                    May 15, 2015
+                                                                </td> */}
+                                                            </tr>
+                                                        ))
+                                                    }
                                                 </tbody>
                                             </table>
                                         </div>
