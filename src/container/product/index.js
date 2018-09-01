@@ -87,7 +87,9 @@ export default class Products extends Component {
                                                                     </div>
                                                                 </td>
                                                                 <td>
-                                                                    {new Date(product.created_at).toLocaleString()}
+                                                                    {/* {new Date(product.created_at).toLocaleString()} */}
+                                                                
+                                                                    {new Date(product.created_at).toUTCString().substr(0, 16)}
                                                                 </td>
                                                             </tr>
                                                         ))
