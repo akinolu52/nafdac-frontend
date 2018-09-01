@@ -22,7 +22,7 @@ export default class Sidebar extends Component {
                         <div className="nav-link">
                         <div className="user-wrapper">
                             <div className="profile-image">
-                            <img src="../images/faces/face1.jpg" alt="profile image" />
+                            <img src="./../images/faces-clipart/pic-1.png" alt="profile image" />
                             </div>
                             <div className="text-wrapper">
                             <p className="profile-name">{ this.state.userData.name.substr(0, 12) }...</p>
@@ -55,7 +55,7 @@ export default class Sidebar extends Component {
                             <a href={"/products"} className="nav-link">My Products</a>
                             </li>
                             <li className="nav-item">
-                            <Link to="/products/create" className="nav-link" href="pages/ui-features/typography.html">Create Product</Link>
+                            <Link to="/products/create" className="nav-link">Create Product</Link>
                             </li>
                         </ul>
                         </div>

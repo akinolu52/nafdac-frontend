@@ -81,7 +81,7 @@ export default class Topbar extends Component {
                         <li className="nav-item d-none d-xl-inline-block">
                             <a className="nav-link " id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                             <span className="profile-text">Hello, { this.state.userData.name } !</span>
-                            <img className="img-xs rounded-circle" src="../images/faces/face1.jpg" alt="Profile image" />
+                            <img className="img-xs rounded-circle" src="./../images/faces-clipart/pic-1.png" alt="Profile image" />
                             </a>
                         </li>
                     </ul>
