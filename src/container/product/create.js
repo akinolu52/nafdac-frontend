@@ -27,7 +27,6 @@ export default class ProductCreate extends Component {
         });
     }
 
-
     fileChangedHandler = (event) => {
         const file = event.target.files[0]
         this.setState({image: file})
@@ -40,7 +39,7 @@ export default class ProductCreate extends Component {
         formData.append('image', this.state.image)
         formData.append('name', this.state.name)
         formData.append('description', this.state.description)
-        console.log(this.state)
+        
         if (this.state.name && this.state.description) {
             let req = {
                 url: '/products/create',
@@ -82,7 +81,7 @@ export default class ProductCreate extends Component {
                             <div className="col-md-8 grid-margin stretch-card">
                                 <div className="card">
                                     <div className="card-body">
-                                        <h4 className="card-title text-center">Product creation form</h4>
+                                        <h4 className="card-title text-center">Product submission form</h4>
                                         <form className="forms-sample">
                                             <div className="form-group">
                                                 <label htmlFor="exampleInputName1">Product name</label>
@@ -102,7 +101,7 @@ export default class ProductCreate extends Component {
                                                 <label htmlFor="exampleTextarea1">Description</label>
                                                 <textarea name="description" className={descriptionInputClass} onChange={this.onChange} rows="10"></textarea>
                                             </div>
-                                            <button type="submit" onClick={this.createProduct} className="btn btn-success mr-2">Create Product</button>
+                                            <button type="submit" onClick={this.createProduct} className="btn btn-success mr-2">Submit Product</button>
                                         </form>
                                     </div>
                                 </div>

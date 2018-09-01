@@ -49,6 +49,9 @@ export default class Products extends Component {
                                                             Image
                                                         </th>
                                                         <th>
+                                                            Number
+                                                        </th>
+                                                        <th>
                                                             Name
                                                         </th>
                                                         <th>
@@ -57,9 +60,9 @@ export default class Products extends Component {
                                                         <th>
                                                             Status
                                                         </th>
-                                                        {/* <th>
-                                                            Deadline
-                                                        </th> */}
+                                                        <th>
+                                                            Submitted
+                                                        </th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -68,6 +71,9 @@ export default class Products extends Component {
                                                             <tr key={product.id}>
                                                                 <td className="py-1">
                                                                     <img src="../../images/faces-clipart/pic-1.png" alt="image" />
+                                                                </td>
+                                                                <td>
+                                                                    {product.nafdac_no}
                                                                 </td>
                                                                 <td>
                                                                     {product.name}
@@ -80,9 +86,9 @@ export default class Products extends Component {
                                                                     <div className="progress-bar bg-success" role="progressbar" style={{width: "25%"}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                                                                     </div>
                                                                 </td>
-                                                                {/* <td>
-                                                                    May 15, 2015
-                                                                </td> */}
+                                                                <td>
+                                                                    {new Date(product.created_at).toLocaleString()}
+                                                                </td>
                                                             </tr>
                                                         ))
                                                     }

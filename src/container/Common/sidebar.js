@@ -32,7 +32,7 @@ export default class Sidebar extends Component {
                             </div>
                             </div>
                         </div>
-                        <Link to="/products/create" className="btn btn-success btn-block">New Product
+                        <Link to="/products/create" className="btn btn-success btn-block">Submit Product
                             <i className="mdi mdi-plus"></i>
                         </Link>
                         </div>
@@ -55,7 +55,7 @@ export default class Sidebar extends Component {
                             <a href={"/products"} className="nav-link">My Products</a>
                             </li>
                             <li className="nav-item">
-                            <Link to="/products/create" className="nav-link">Create Product</Link>
+                            <Link to="/products/create" className="nav-link">Submit Product</Link>
                             </li>
                         </ul>
                         </div>

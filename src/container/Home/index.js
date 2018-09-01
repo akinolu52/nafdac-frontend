@@ -1,14 +1,53 @@
 import React, {Component, Fragment} from 'react';
 import { Link } from 'react-router-dom';
 import {userData} from '../../auth'
+import API from '../../api';
 
 export default class Home extends Component {
     constructor() {
         super();
         this.state = {
-            userData: userData()
+            userData: userData(),
+            products: [],
+            q: null
         }
+        this.getProducts()
+        this.onChange = this.onChange.bind(this)
+        this.search = this.search.bind(this)
     }
+
+    onChange(e) {
+        this.setState({
+            [e.target.name] : e.target.value
+        });
+    }
+
+    search (e) {
+        e.preventDefault();
+        let url = `/search/${this.state.q}`;
+        API.get(url)
+        .then(response => {
+            if (response !== false) {
+                this.setState({ products: response.data })
+                console.log(this.state.products)
+            }
+        }).catch(e =>{
+            console.log(e);
+        })
+    }
+
+    getProducts () {
+        API.get('/products/all')
+        .then(response => {
+            if (response !== false) {
+                this.setState({ products: response.data })
+                console.log(this.state.products)
+            }
+        }).catch(e =>{
+            console.log(e);
+        })
+    }
+
     renderSwitch () {
         if (this.state.userData == null) {
             return(
@@ -35,6 +74,7 @@ export default class Home extends Component {
             )
         }
     }
+
     render() {
         return (
             <div className="container">
@@ -56,11 +96,8 @@ export default class Home extends Component {
                 <div className="cover">
                     <h1>Discover registered drugs.</h1>
                     <form className="flex-form">
-                        <label htmlFor="from">
-                            <i className="ion-location"></i>
-                        </label>
-                        <input type="search" placeholder="Where do you want to go?" />
-                        <input type="submit" value="Search" />
+                        <input type="search" placeholder="Where do you want to go?" name="q" onChange={this.onChange} />
+                        <input type="submit" value="Search" onClick={this.search} />
                     </form>
                     <div id="madeby">
                         <span>
