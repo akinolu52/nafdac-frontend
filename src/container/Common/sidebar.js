@@ -56,7 +56,13 @@ export default class Sidebar extends Component {
                                 { this.state.userData.role === 'user' &&
                                     <React.Fragment>
                                         <li className="nav-item">
-                                        <a href="/products" className="nav-link">My Products</a>
+                                        <a href="/user/products" className="nav-link">My Products</a>
+                                        </li>
+                                        <li className="nav-item">
+                                        <Link to="/products/create" className="nav-link">Approved Products</Link>
+                                        </li>
+                                        <li className="nav-item">
+                                        <Link to="/products/create" className="nav-link">Pending Products</Link>
                                         </li>
                                         <li className="nav-item">
                                         <Link to="/products/create" className="nav-link">Submit Product</Link>

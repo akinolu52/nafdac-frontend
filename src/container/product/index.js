@@ -25,7 +25,9 @@ export default class Products extends Component {
         }).catch(e =>{
             console.log(e);
         })
+        console.log('jjj')
     }
+      
     render() {
         if (!this.state.userData) {
             return (<Redirect to={"/login"} />)
@@ -70,7 +72,7 @@ export default class Products extends Component {
                                                         this.state.products.map(product => (
                                                             <tr key={product.id}>
                                                                 <td className="py-1">
-                                                                    <img src="../../images/faces-clipart/pic-1.png" alt="image" />
+                                                                    <img src="../../images/faces-clipart/pic-1.png" alt="product pic" />
                                                                 </td>
                                                                 <td>
                                                                     {product.nafdac_no}

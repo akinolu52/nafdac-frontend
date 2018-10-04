@@ -5,47 +5,28 @@ import Login from '../Login';
 import Register from '../Register';
 import Dashboard from '../Dashboard'
 
+import Product from '../product/all';
 import ProductCreate from '../product/create';
-import Products from '../product';
-// import Header from '../../partials/header'
-// import Footer from '../../partials/footer'
-
-const userAuth = {
-    isAuthenticated: false,
-    authenticated(cb) {
-        this.isAuthenticated = true
-        setTimeout(cb, 100)
-    },
-    signout(cb) {
-        this.isAuthenticated = true
-        setTimeout(cb, 100)
-    }
-}
+import userProducts from '../product';
+import Other from '../product/other';
 
 const App = () => (
   <main>
 
     <Switch>
       <Route exact path="/" component={Home} />
-      {/* <Route exact path="/about-us" component={About} /> */}
-      <Route exact path="/login" component={Login} />
-      <Route exact path="/register" component={Register} />
-      <Route exact path="/dashboard" component={Dashboard} />
-      <Route exact path="/products/create" component={ProductCreate} />
-      <Route exact path="/products" component={Products} />
+      <Route path="/login" component={Login} />
+      <Route path="/register" component={Register} />
+      <Route path="/dashboard" component={Dashboard} />
+      <Route path="/products/create" component={ProductCreate} />
+      <Route path="/products/" component={Product} />
+      <Route path='/user/products' component={userProducts}/>
+      <Route path="/products/:id" component={Other} />
       {/* <Route exact path="/pricing" component={Pricing} /> */}
     </Switch>
+    
 
     {/* <Footer/> */}
   </main>
 );
-
-// const PrivateRoute = ({ component: Component, ...rest }) => (
-//     <Route {...rest} render={(props) =>(
-//         userAuth.isAuthenticated === true 
-//         ? <Component {...props} />
-//         : <Redirect to="/login" />
-//     )} />
-// )
-
 export default App;
